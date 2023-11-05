@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+.overflow-scroll-app {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.modal-box {
+    height: 50rem;
+}
