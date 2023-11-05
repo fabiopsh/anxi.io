@@ -54,106 +54,128 @@ export default function CompileABCpage() {
         <>
             <div className='d-flex position-fixed w-100 bg-color App align-items-center justify-content-center p-4'>
                 <div className='d-flex flex-column p-2 module-card'>
-                    <div className='overflow-scroll-app scrollbar-primary d-flex flex-column flex-1 align-items-center gap-3 p-3'>
-                        <div className='close-btn-position'>
-                            <IconButton onClick={() => navigate('/')}>
-                                <CloseRoundedIcon />
-                            </IconButton>
+                    <div className='overflow-scroll-app scrollbar-primary d-flex flex-column flex-1 align-items-center gap-3 p-3 w-100'>
+                        <div className='d-flex flex-1 w-100 align-items-center justify-content-center'>
+                            <div className='d-flex typograpy-title ms-auto'>Compile your ABC</div>
+                            <div className='d-flex ms-auto'>
+                                <IconButton onClick={() => navigate('/')} size='small' className='ms-auto d-flex flex-shrink-0'>
+                                    <CloseRoundedIcon />
+                                </IconButton>
+                            </div>
                         </div>
-                        <div className='typograpy-title'>Compile your ABC</div>
                         <div className='typograpy-subtitle'>A - Antecedente</div>
                         <div className='d-flex gap-3 flex-1 flex-column w-100'>
-                            <div className='typograpy-label'>Data e ora</div>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DateTimePicker
-                                    value={data}
-                                    onChange={(newValue) => setData(newValue)}
+                            <div>
+                                <div className='typograpy-label'>Data e ora</div>
+                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                    <DateTimePicker
+                                        value={data}
+                                        onChange={(newValue) => setData(newValue)}
+                                    />
+                                </LocalizationProvider>
+                            </div>
+                            <div>
+                                <div className='typograpy-label'>Cosa é successo?</div>
+                                <TextField
+                                    required
+                                    multiline
+                                    minRows={2}
+                                    id="outlined-required"
+                                    label="Cosa é successo"
+                                    fullWidth
+                                    value={whatAppened}
+                                    onChange={(event) => { setWhatAppened(event.target.value) }}
                                 />
-                            </LocalizationProvider>
-                            <div className='typograpy-label'>Cosa é successo?</div>
-                            <TextField
-                                required
-                                multiline
-                                minRows={2}
-                                id="outlined-required"
-                                label="Cosa é successo"
-                                fullWidth
-                                value={whatAppened}
-                                onChange={(event) => { setWhatAppened(event.target.value) }}
-                            />
+                            </div>
                         </div>
                         <div className='typograpy-subtitle'>B - Pensieri/i automatico/i</div>
                         <div className='d-flex flex-1 flex-column gap-2 w-100'>
-                            <div className='typograpy-label'>Cosa mi sta passando per la mente?</div>
-                            <TextField
-                                required
-                                multiline
-                                minRows={4}
-                                id="outlined-required"
-                                label="Cosa mi sta passando per la mente?"
-                                fullWidth
-                                value={whatInMyMind}
-                                onChange={(event) => { setWhatInMyMind(event.target.value) }}
-                            />
-                            <div className='typograpy-label'>Quanto credo a questo pensiero?</div>
-                            <Slider
-                                size="small"
-                                max={100} min={0} aria-label="Small"
-                                value={beleve}
-                                color="warning"
-                                onChange={(_event: Event, newValue: number | number[]) => {
-                                    setBeleve(newValue as number);
-                                }}
-                                valueLabelDisplay="auto"
-                            />
+                            <div>
+                                <div className='typograpy-label'>Cosa mi sta passando per la mente?</div>
+                                <TextField
+                                    required
+                                    multiline
+                                    minRows={4}
+                                    id="outlined-required"
+                                    label="Cosa mi sta passando per la mente?"
+                                    fullWidth
+                                    value={whatInMyMind}
+                                    onChange={(event) => { setWhatInMyMind(event.target.value) }}
+                                />
+                            </div>
+                            <div>
+                                <div className='typograpy-label'>Quanto credo a questo pensiero?</div>
+                                <Slider
+                                    size="small"
+                                    max={100} min={0} aria-label="Small"
+                                    value={beleve}
+                                    color="warning"
+                                    onChange={(_event: Event, newValue: number | number[]) => {
+                                        setBeleve(newValue as number);
+                                    }}
+                                    valueLabelDisplay="auto"
+                                    className='mx-2'
+                                />
+                            </div>
                         </div>
                         <div className='typograpy-subtitle'>C - Conseguenze</div>
                         <div className='d-flex flex-column gap-2 w-100'>
-                            <div className='typograpy-label'>EMOTIVE</div>
-                            <TextField
-                                required
-                                multiline
-                                minRows={4}
-                                id="outlined-required"
-                                label="Che emozione stai provando"
-                                fullWidth
-                                value={emotions}
-                                onChange={(event) => { setEmotions(event.target.value) }}
-                            />
-                            <div className='typograpy-label'>Quanto é intensa?</div>
-                            <Slider
-                                size="small"
-                                max={100} min={0} aria-label="Small"
-                                value={emotionsRate}
-                                color="warning"
-                                onChange={(_event: Event, newValue: number | number[]) => {
-                                    setEmotionsRate(newValue as number);
-                                }}
-                                valueLabelDisplay="auto"
-                            />
-                            <div className='typograpy-label'>FISIOLOGICHE</div>
-                            <div className='typograpy-label'>Che sensazine fisica sto provando?</div>
-                            <TextField
-                                required
-                                multiline
-                                minRows={4}
-                                id="outlined-required"
-                                label="Sensazioni fisiche"
-                                fullWidth
-                                value={sensation}
-                                onChange={(event) => { setSensation(event.target.value) }}
-                            />
-                            <div className='typograpy-label'>COMPORTAMENTALI</div>
-                            <TextField
-                                required
-                                multiline
-                                minRows={4}
-                                id="outlined-required"
-                                label="Cosa ho fatto"
-                                fullWidth
-                                value={whatIdDo}
-                                onChange={(event) => { setWhatIdDo(event.target.value) }}
-                            />
+                            <div className='typograpy-label fw-bold'>EMOTIVE</div>
+                            <div>
+                                <div className='typograpy-label'>Che emozione stai provando?</div>
+                                <TextField
+                                    required
+                                    multiline
+                                    minRows={4}
+                                    id="outlined-required"
+                                    label="Che emozione stai provando"
+                                    fullWidth
+                                    value={emotions}
+                                    onChange={(event) => { setEmotions(event.target.value) }}
+                                />
+                            </div>
+                            <div>
+                                <div className='typograpy-label'>Quanto é intensa?</div>
+                                <Slider
+                                    size="small"
+                                    max={100} min={0} aria-label="Small"
+                                    value={emotionsRate}
+                                    color="warning"
+                                    onChange={(_event: Event, newValue: number | number[]) => {
+                                        setEmotionsRate(newValue as number);
+                                    }}
+                                    valueLabelDisplay="auto"
+                                    className='mx-2'
+                                />
+                            </div>
+                            <div className='typograpy-label fw-bold'>FISIOLOGICHE</div>
+                            <div>
+                                <div className='typograpy-label'>Che sensazine fisica sto provando?</div>
+                                <TextField
+                                    required
+                                    multiline
+                                    minRows={4}
+                                    id="outlined-required"
+                                    label="Sensazioni fisiche"
+                                    fullWidth
+                                    value={sensation}
+                                    onChange={(event) => { setSensation(event.target.value) }}
+                                />
+                            </div>
+                            <div className='typograpy-label fw-bold'>COMPORTAMENTALI</div>
+                            <div>
+                                <div className='typograpy-label'>Cosa ho fatto?</div>
+                                <TextField
+                                    required
+                                    multiline
+                                    minRows={4}
+                                    id="outlined-required"
+                                    label="Cosa ho fatto"
+                                    fullWidth
+                                    value={whatIdDo}
+                                    onChange={(event) => { setWhatIdDo(event.target.value) }}
+                                />
+                            </div>
                         </div>
                         <div className='d-flex gap-3'>
                             <Button variant="outlined" color="warning" onClick={clearData}>PULISCI</Button>
@@ -161,7 +183,7 @@ export default function CompileABCpage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             <Modal
                 show={show}
                 size='lg'

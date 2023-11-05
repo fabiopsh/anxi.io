@@ -4,8 +4,31 @@
     color: rgb(53, 32, 13);
 }
 
+@keyframes bganimation {
+
+    0%,
+    100% {
+        background-color: rgba(190, 108, 25, 1);
+    }
+
+    50% {
+        background-color: rgb(255, 187, 0);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
 .bg-color {
-    background: linear-gradient(90deg, rgba(190, 108, 25, 1) 0%, rgba(212, 138, 0, 1) 45%, rgba(255, 196, 0, 1) 100%);
+    background: rgba(190, 108, 25, 1);
+    animation: bganimation 8s infinite linear;
 }
 
 .App {
@@ -13,22 +36,25 @@
 }
 
 .homepage-card {
-    width: 35rem;
     height: fit-content;
     border-radius: 1rem;
-    background-color: antiquewhite;
-    box-shadow: 3px 5px 16px 5px rgba(0, 0, 0, 0.4);
+    /*     background-color: rgb(255, 255, 255);
+    box-shadow: 3px 5px 16px 5px rgba(0, 0, 0, 0.4); */
     overflow: hidden;
+    flex-grow: 0.8;
+    color: white;
+    animation: fade 1s linear;
 }
 
 .module-card {
     position: relative;
-    width: 35rem;
-    height: 90vh;
+    height: 80vh;
     border-radius: 1rem;
-    background-color: antiquewhite;
+    background-color: rgb(255, 255, 255);
     box-shadow: 3px 5px 16px 5px rgba(0, 0, 0, 0.4);
     overflow: hidden;
+    flex-grow: 0.8;
+    animation: fade 1s linear;
 }
 
 .text-center {
@@ -43,12 +69,12 @@
     font-weight: 700;
     padding: 1rem;
     transition: all 1s;
-    box-shadow: 3px 5px 16px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 5px 12px 5px rgba(0, 0, 0, 0.199);
 }
 
 .start-btn:hover {
     transition: all 1s;
-    background: linear-gradient(90deg, rgba(161, 92, 23, 1) 0%, rgba(176, 116, 3, 1) 45%, rgba(201, 155, 1, 1) 100%);
+    scale: 1.1;
 }
 
 .scrollbar-primary {
