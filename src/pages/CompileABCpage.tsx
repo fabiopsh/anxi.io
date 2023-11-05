@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Button, IconButton, Slider, TextField } from '@mui/material';
-import { DatePicker, DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import dayjs, { Dayjs } from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Modal } from 'react-bootstrap';
@@ -101,7 +101,7 @@ export default function CompileABCpage() {
                                 max={100} min={0} aria-label="Small"
                                 value={beleve}
                                 color="warning"
-                                onChange={(event: Event, newValue: number | number[]) => {
+                                onChange={(_event: Event, newValue: number | number[]) => {
                                     setBeleve(newValue as number);
                                 }}
                                 valueLabelDisplay="auto"
@@ -126,7 +126,7 @@ export default function CompileABCpage() {
                                 max={100} min={0} aria-label="Small"
                                 value={emotionsRate}
                                 color="warning"
-                                onChange={(event: Event, newValue: number | number[]) => {
+                                onChange={(_event: Event, newValue: number | number[]) => {
                                     setEmotionsRate(newValue as number);
                                 }}
                                 valueLabelDisplay="auto"

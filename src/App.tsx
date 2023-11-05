@@ -1,4 +1,3 @@
-import { useRef, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
